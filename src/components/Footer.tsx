@@ -22,14 +22,14 @@ import Typography from "./shared/Typography";
 
 const Footer = () => {
   return (
-    <footer className="relative h-full md:px-0 bg-gray-950 text-white">
+    <footer className="relative md:px-0 bg-gray-950 text-white">
       <img
         src={backgroundImage}
         alt="Background"
         className="absolute opacity-30 w-full h-full object-cover"
       />
 
-      <div className="container mx-auto px-5 md:px-0 relative pt-5 pb-5 z-10">
+      <div className="container mx-auto px-5 md:px-0 relative pt-5 pb-20 z-10">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className=" p-4 ">
             <Typography
