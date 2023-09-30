@@ -1,12 +1,16 @@
 import { useState } from "react";
 import Logo from "../assets/visible-one-logo.png";
 import {
+  BiChevronDown,
   BiDownArrow,
   BiEnvelope,
   BiFile,
   BiLogoWhatsapp,
   BiPhone,
+  BiSearch,
 } from "react-icons/bi";
+import Typography from "./shared/Typography";
+import DropdownLink from "./shared/DropDownLink";
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -15,35 +19,57 @@ function Header() {
   };
 
   return (
-    <div className="z-50">
-      <div className="bg-gray-50">
-        <div className="md:flex justify-between py-1 px-8 md:px-16 items-center i">
-          <div></div>
-          <div className="flex justify-center items-center gap-2">
-            <div className="flex items-center text-sm">
-              <BiPhone className="text-blue-950" />
-              6248 0838
+    <nav className="z-50">
+      <div className="bg-gray-100">
+        <div className="flex justify-between py-1 px-5 md:px-16 items-center">
+          <div className=""></div>
+          <div className="md:flex md:justify-center md:items-center gap-1 md:gap-2">
+            {/* Contact Information */}
+            <div className="flex justify-center md:justify-end gap-1">
+              <div className="flex items-center text-sm">
+                <BiPhone className="text-blue-950" />
+                <Typography
+                  variant="link"
+                  className="whitespace-nowrap">
+                  6248 0838
+                </Typography>
+              </div>
+              <div className="flex items-center text-sm">
+                <BiLogoWhatsapp className="text-blue-950" />
+                <Typography
+                  variant="link"
+                  className="whitespace-nowrap">
+                  8484 9948
+                </Typography>
+              </div>
             </div>
-            <div className="flex items-center text-sm">
-              <BiLogoWhatsapp className="text-blue-950" />
-              8484 9948
+
+            <div className="flex gap-1 justify-center md:justify-end">
+              <div className="flex items-center text-sm">
+                <BiEnvelope className="text-blue-950" />
+                <Typography variant="link">info@visibleone.com</Typography>
+              </div>
+              {/* Quote Button */}
+              <button className="bg-lime-950 md:w-24 border-[1px] md:border-0 h-[25px] rounded flex items-center justify-center px-2 py-1 text-white">
+                <BiFile className="" />
+                <Typography variant="link"> QUOTE</Typography>
+              </button>
+
+              {/* Language Dropdown */}
+              <button className="border-[1px] md:w-24 border-blue-950 h-[25px] rounded flex items-center justify-center px-2 py-1 text-blue-950">
+                <Typography
+                  variant="link"
+                  className="whitespace-nowrap">
+                  SG EN
+                </Typography>{" "}
+                <BiDownArrow className="" />
+              </button>
             </div>
-            <div className="flex items-center text-sm">
-              <BiEnvelope className="text-blue-950" />
-              info@visibleone.com
-            </div>
-            <button className="bg-green-500 w-24 border-[1px] h-[30px] rounded flex items-center justify-center px-2 py-1 text-white">
-              <BiFile className="" />
-              QUOTE
-            </button>
-            <button className="border-[1px] w-24 border-blue-500 h-[30px] rounded flex items-center justify-center px-2 py-1 text-blue-500">
-              SG EN <BiDownArrow className="" />
-            </button>
           </div>
         </div>
       </div>
 
-      <nav className="bg-white text-black py-2 px-8 md:px-16 sticky top-0 z-[100]">
+      <div className="bg-white text-black py-2 px-8 md:px-16 sticky top-0 z-[100]">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <a
@@ -57,11 +83,33 @@ function Header() {
             </a>
           </div>
           <div className="hidden md:flex space-x-4">
-            <a href="/home">Home</a>
-            <a href="/services">Services</a>
-            <a href="/company">Company</a>
-            <a href="/blog">Blog</a>
-            <a href="/contact">Contact Us</a>
+            <a href="/">
+              <Typography variant="link">Home</Typography>
+            </a>
+            <div>
+              <DropdownLink
+                name="Service"
+                options={["Website", "Mobile"]}
+              />
+            </div>
+            <a href="/">
+              <Typography variant="link">Company</Typography>
+            </a>
+            <a href="/">
+              <Typography variant="link">Blog</Typography>
+            </a>
+            
+            <div>
+              <DropdownLink
+                name="Contact Us"
+                options={["SG Office", "HK Office"]}
+              />
+            </div>
+            <a href="/">
+              <button>
+                <BiSearch />
+              </button>
+            </a>
           </div>
           <div className="md:hidden flex items-center">
             <button
@@ -85,32 +133,32 @@ function Header() {
             <a
               href="/home"
               className="block py-2">
-              Home
+              <Typography variant="link">Home</Typography>
             </a>
             <a
               href="/services"
               className="block py-2">
-              Services
+              <Typography variant="link">Services</Typography>
             </a>
             <a
               href="/company"
               className="block py-2">
-              Company
+              <Typography variant="link">Company</Typography>
             </a>
             <a
               href="/blog"
               className="block py-2">
-              Blog
+              <Typography variant="link">Blog</Typography>
             </a>
             <a
               href="/contact"
               className="block py-2">
-              Contact Us
+              <Typography variant="link">Contact Us</Typography>
             </a>
           </div>
         )}
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 

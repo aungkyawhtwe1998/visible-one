@@ -2,6 +2,7 @@ import React from "react";
 import CircleBox from "./shared/CircleBox";
 import Tablet from "../assets/about/Tablet.png";
 import Button from "./shared/Button";
+import Typography from "./shared/Typography";
 
 const About = () => {
   return (
@@ -9,11 +10,12 @@ const About = () => {
       <div className="container flex flex-col md:flex-row justify-between items-center my-5">
         <div className="md:w-1/2 flex flex-col justify-center items-start">
           <div>
-            <span className="text-3xl md:text-6xl">ABOUT</span>
-            <span className="text-3xl md:text-6xl text-lime-950"> TRIPPRO</span>
+            <Typography variant="title" className="inline-block">ABOUT</Typography>
+            {/* <span className="text-3xl md:text-6xl">ABOUT</span> */}
+            <Typography variant="title" className="text-lime-950 inline"> TRIPPRO</Typography>
           </div>
-          <div className="border-t w-2/4 md:w-1/4 border-2 border-gray-300 my-4"></div>
-          <p>
+          <div className="border-t w-2/4 md:w-1/4 border-2 border-blue-950 my-4" ></div>
+          <Typography variant="description">
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
             erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
@@ -22,7 +24,7 @@ const About = () => {
             sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
             et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
             accusam et justo duo dolores et ea rebum. Stet clita
-          </p>
+          </Typography>
           <Button text="tour to website" />
         </div>
         <div className="md:w-1/2 flex justify-end items-center">

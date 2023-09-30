@@ -7,11 +7,12 @@ import Footer from "../components/Footer";
 
 const HomePage = () => {
   return (
-    <div>
-      <Header />
+    <div className="h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 ">
       <section
         id="hero"
         className="snap-start">
+        <Header />
+
         <Hero />
       </section>
       <section
@@ -24,11 +25,14 @@ const HomePage = () => {
         className="snap-center px-5">
         <OurChallenges />
       </section>
-      <section id="problems" className="snap-center">
+      <section
+        id="problems"
+        className="snap-center">
         <Problems />
       </section>
-
-      <Footer />
+      <section className="snap-center">
+        <Footer />
+      </section>
     </div>
   );
 };

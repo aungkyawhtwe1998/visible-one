@@ -10,7 +10,9 @@ import Phone3 from "../assets/problems/phone/trippro.com.hk_iPhone_X3.png";
 import Phone4 from "../assets/problems/phone/trippro.com.hk_iPhone_X4.png";
 
 import { useState } from "react";
-import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import { BiChevronLeft, BiChevronRight, BiMobile, BiPhone } from "react-icons/bi";
+import SwitchButton from "./shared/Switch";
+import Typography from "./shared/Typography";
 
 const slideDataDesktop = [
   {
@@ -91,11 +93,11 @@ const Problems = () => {
 
   return (
     <div className="h-screen flex items-center justify-center">
-      <div className="md:relative md:mt-0 mt-40 flex flex-col lg:relative lg:justify-center lg:items-end justify-center items-center my-5">
+      <div className="md:relative md:mt-0 flex flex-col lg:relative lg:justify-center lg:items-end justify-center items-center my-5">
         {/* left side panel */}
         {/* desktop or phone condition */}
         {isDesktop ? (
-          <div className=" w-[40%] md:w-[35%] lg:w-[37%] lg:absolute justify-end lg:left-[80px] md:left-[10px]">
+          <div className=" w-[40%] md:w-[35%] lg:w-[37%] lg:absolute justify-end lg:left-[150px] md:left-[10px]">
             <div className="relative">
               <img
                 src={Imac}
@@ -112,7 +114,7 @@ const Problems = () => {
             </div>
           </div>
         ) : (
-          <div className=" lg:w-[15%] md:w-[20%] w-[20%] lg:absolute justify-end top-[-5px] lg:left-[320px] md:left-[80px]">
+          <div className=" lg:w-[15%] md:w-[20%] w-[20%] lg:absolute justify-end top-[-5px] lg:left-[380px] md:left-[80px]">
             <div className="relative">
               <img
                 src={Iphone}
@@ -133,11 +135,11 @@ const Problems = () => {
         {/* desktop or phone condition */}
 
         {/* right side  panel */}
-        <div className="md:w-[100%] px-5 lg:w-[75%] md:pl-5 lg:pl-72 py-8 md:pr-16 lg:pr-16 md:float-right lg:float-right bg-gradient-to-r from-lime-950 to-blue-950 text-white flex flex-col justify-center items-start">
+        <div className="md:w-[100%] my-3 md:my-0 px-5 lg:w-[70%] md:pl-5 lg:pl-72 py-4 md:pr-16 md:float-right lg:float-right bg-gradient-to-r from-lime-950 to-blue-950 text-white flex flex-col justify-center items-start">
           <div className="mb-5">
-            <span className="text-xl md:text-3xl">
+            <Typography variant="title">
               Their Old Website & Problems
-            </span>
+            </Typography>
           </div>
 
           {/* list items */}
@@ -152,7 +154,7 @@ const Problems = () => {
           {/* end list items */}
 
           {/* control buttons */}
-          <div className="flex z-50">
+          <div className="flex z-10 my-2">
             <button
               className="mr-2"
               onClick={prevSlide}>
@@ -167,14 +169,25 @@ const Problems = () => {
           {/* end control buttons */}
 
           {/* toggle button */}
-          <div className="z-50">
-            <Button
+          <div className="z-10">
+            <SwitchButton
               onClick={() => {
                 setCurrentSlide(0);
                 setIsDesktop(!isDesktop);
-              }}
-              text={isDesktop ? "Desktop" : "Mobile"}
-            />
+              }}>
+              {isDesktop ? (
+                <div className="flex w-[120px] items-center justify-end">
+                  <span className="mr-2">Desk Top</span>
+                  <div className="w-4 h-4 rounded-full bg-white"></div>
+                </div>
+              ) : (
+                <div className="flex w-[120px] float-right items-center justify-start">
+                  <div className="w-4 h-4 rounded-full bg-white mr-2"></div>
+                  <BiMobile/>
+                  <span>Mobile</span>
+                </div>
+              )}
+            </SwitchButton>
           </div>
           {/* end toggle buttons */}
         </div>

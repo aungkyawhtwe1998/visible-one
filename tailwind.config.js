@@ -4,6 +4,12 @@ module.exports = {
 
   theme: {
     extend: {
+      extend: {
+        fontFamily: {
+          custom: ["Open Sans", "sans-serif"],
+        },
+      },
+      //
       colors: {
         blue: {
           950: "#2DC4EA",
