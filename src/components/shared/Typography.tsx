@@ -16,7 +16,7 @@ const Typography: React.FC<TypographyProps> = ({
   const variants: Record<string, string> = {
     title: "text-3xl md:text-4xl font-semibold",
     title2:"text-md md:text-lg font-semibold",
-    description: "md:text-md font-thin",
+    description: "md:text-md font",
     link:"text-sm"
   };
 
